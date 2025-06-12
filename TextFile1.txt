@@ -14,13 +14,19 @@ Here are the steps to set up a project in the clean architecture pattern on VS C
 
         -In clean architecture, each project file besides the Solution gets a name that designates what it is to help with organization. So for the API project file we already have, rename it to “<nameyoupicked>.API”. We are going to add the name of each layer onto the end of each project file name. 
 
+        -Right click the solution file in the Solution Explorer on the right side of the IDE, and click “add solution folder” and call it "Solution Items"
+
+        -Right click again and pick another folder, and name this one "Tests"
+
         -Next, right click the solution file and scroll down to “add”, and click “new project” 
 
-        -Select a console app template called <nameyoupicked>.Application 
+        -Select the XUnit Test Project template and name it "<nameyoupicked>.Tests"
 
-        -Another console app template called <nameyoupicked>.Data 
+        -Then Select a console app template called <nameyoupicked>.Application 
 
-        -Another console app template called <nameyoupicked>.Domain 
+        -Then Another console app template called <nameyoupicked>.Data 
+
+        -Then Another console app template called <nameyoupicked>.Domain 
 
         -And a final project in the Sql Server Database project template called <nameyoupicked>.SqlServerDatabase 
 
@@ -82,8 +88,6 @@ and that will create a pull request to merge it into the main branch after you a
 into smaller branches and that is totally fine, like if you are working on CRUD operations for multiple parts of the project, you might create branches like feature/CRUD_Favorites_Entry and feature/CRUD_Recipes_To_Try.
 
 
-
-
 * Step 3: Create a New Branch
 
    //It is imporant not to work directly on the main branch. So we will make a new branch for each feature or bug fix. There a few ways we can do this, but its probably best just to do it through the IDE.
@@ -115,20 +119,11 @@ into smaller branches and that is totally fine, like if you are working on CRUD 
 
     -This creates a new branch called `feature/my-new-feature` and switches to it.
 
-
 * Step 4: Make Changes and Create a Pull Request
 
     //Now that you have a new branch, and you have been working on your feautre, you can create a pull request to merge your changes back into the main branch. 
     //Again we can do this through Visual Studio Community or the command line, but it'll be easier to do it through Visual Studio Community.
     //Stage and Commit Your Changes
-
-    //Through command line or terminal:
-
-        -git add . --> This stages all your changes for commit.
-
-        -git commit -m "Added new feature for X" --> This commits your changes with a message.
-
-        -git push origin feature/my-new-feature --> This pushes your branch to the remote repository on GitHub.
 
     //Through Visual Studio Community IDE:
 
@@ -141,13 +136,20 @@ into smaller branches and that is totally fine, like if you are working on CRUD 
         -Click "Commit All" to commit your changes.
 
         -Click "Push" to push your branch to GitHub.
-    
-    
+
+    //Through command line or terminal:
+
+        -git add . --> This stages all your changes for commit.
+
+        -git commit -m "Added new feature for X" --> This commits your changes with a message.
+
+        -git push origin feature/my-new-feature --> This pushes your branch to the remote repository on GitHub.
+
     //Open a Pull Request on GitHub
 
         -Go to your repository on GitHub.com.
 
-        -GitHub will usually show a prompt:   "Compare & pull request" – click it.
+        -GitHub will usually show a prompt: "Compare & pull request". Click it if you see it there.
     
         -If you dont see it, go to the “Pull Requests” tab and click “New pull request”.
   
@@ -159,24 +161,21 @@ into smaller branches and that is totally fine, like if you are working on CRUD 
 
         -Click “Create pull request”.
 
-6. Review and Merge
+    * Step 5: Review and Merge
 
-    You (or a reviewer) can review the code, leave comments, or request changes.
+     //This is the stage where we review the changes made in the pull request and decide whether to merge them into the main branch.
+     //There is a comments section on github we can use to collaborate and discuss the changes. If you would prefer we can also just do it through discord, what ever is easier for you.
+    
+     //So once the pull request is created, it will be listed under the "Pull Requests" tab in your repository.
 
-    Once approved:
+        -If there are any changes requested, you can make those changes in your branch and push them again. The pull request will automatically update with the new changes.
+        
+        -Once everything looks good, you can merge the pull request into the main branch.
 
-        Click “Merge pull request”
+        -Confirm merge by clicking the "Merge pull request" button.
+   
 
-        Confirm the merge.
+And that should be enough for getting the project set up. We have a repository, enabled pull requests, showed you how to create a new branch, make changes, and a pull request. After this, we can start working on the actual features of the project.
+I'll probably make the first pull request to set up the abstraction in the data layer infrastructure and some other thing, and then we can go from there. After that, we will start you off by having you write sql statements for the tables we are going to use,
+and then you'll do CRUD operations and run tests to see how we need to update our SQL statements to make sure everything works how we want it to.
 
-        (Optional) Delete the feature branch after merging.
-
-    how to enable pull requests in Visual Studio Community
-    -Open your project in Visual Studio Community
-    -Make sure you have the Git extension installed
-    -Go to the “Team Explorer” tab
-    -Click on “Branches”
-    -Right-click on the branch you want to create a pull request for
-    -Select “Create Pull Request”
-    -Fill out the form with a title and description of your changes
-    -Click “Create”
