@@ -14,21 +14,21 @@ Here are the steps to set up a project in the clean architecture pattern on VS C
 
         -In clean architecture, each project file besides the Solution gets a name that designates what it is to help with organization. So for the API project file we already have, rename it to “<nameyoupicked>.API”. We are going to add the name of each layer onto the end of each project file name. 
 
-        -Right click the solution file in the Solution Explorer on the right side of the IDE, and click “add solution folder” and call it "Solution Items"
+        -Right click the solution file in the Solution Explorer and click “add solution folder” and call it "Solution Items"
 
-        -Right click again and pick another folder, and name this one "Tests"
+        -Right click again and add another folder, and name this one "Tests"
 
-        -Next, right click the solution file and scroll down to “add”, and click “new project” 
+        -Next, right click the Test folder, scroll down to “add”, and click “new project” 
 
         -Select the XUnit Test Project template and name it "<nameyoupicked>.Tests"
 
-        -Then Select a console app template called <nameyoupicked>.Application 
+        -Then right click the solution file again and select a console app template called <nameyoupicked>.Application 
 
-        -Then Another console app template called <nameyoupicked>.Data 
+        -Right click the solution file again and then add another console app template called <nameyoupicked>.Data 
 
-        -Then Another console app template called <nameyoupicked>.Domain 
+        -Right click solution file and then add another console app template called <nameyoupicked>.Domain 
 
-        -And a final project in the Sql Server Database project template called <nameyoupicked>.SqlServerDatabase 
+        -Right click solution file and a final project in the Sql Server Database project template called <nameyoupicked>.SqlServerDatabase 
 
     //Set up the the repository 
 
