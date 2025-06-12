@@ -1,0 +1,6 @@
+@arael_HostAddress = http://localhost:5161
+
+GET {{arael_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

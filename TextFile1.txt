@@ -1,0 +1,53 @@
+Here are the steps to set up a project on VS Community and set up PRs.
+
+Step 1: Set up Repository 
+
+    First create the project 
+
+        -Go to VS Community, and create a new project 
+
+        -Select the the API template. 
+
+        -Come up with a name for our project 
+
+    Set up the project files 
+
+        -In clean architecture, each project file besides the Solution gets a name that designates what it is. So for the API project file we already have, rename it to “<nameyoupicked>.API”. We are going to add the name of each layer onto the end of the project file name. 
+
+        -Next, double click the solution file and scroll down to “add”, and click “new project” 
+
+        -We are going to need one console app template called <nameyoupicked>.Application 
+
+        -Another console app called <nameyoupicked>.Data 
+
+        -Another console app called <nameyoupicked>.Domain 
+
+        -And a final project in the Sql Server Database project template called <nameyoupicked>.SqlServerDatabase 
+
+    Set up the the repository 
+
+        -go to git changes in the document and follow the steps to create a repo. It can be found at the very top under the git tab, or at the bottom left under the git changes tab 
+
+        -Click the “create git repository” button 
+
+        -Change visibility from private to public 
+
+        -Press create and push 
+
+Step 2: How to enable pull requests 
+     
+     Go to the repository on GitHub 
+
+        -Click on the “settings” tab 
+
+        -Scroll down to the “branches” section 
+
+        -Click on “add rule” 
+    
+        -In the “branch name pattern” box, type in “main” 
+    
+        -Check the box that says “Require pull request reviews before merging” 
+        
+        -Check the box that says “Require status checks to pass before merging” 
+        
+        -Click on “Create” at the bottom of the page
