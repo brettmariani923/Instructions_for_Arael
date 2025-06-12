@@ -75,7 +75,7 @@ Here are the steps to set up a project in the clean architecture pattern on VS C
 
 So far we've managed to set up a repository and enable pull requests. Now let's go through the steps to create a pull request in Visual Studio Community and GitHub.
 
-So the way pull requests work is that you create a new branch, make changes, and then submit those changes for review before merging them into the main branch. See pic 1 for a visual representation of this process.
+So the way pull requests work is that you create a new branch, make changes, and then submit those changes for review before merging them into the main branch. See pic 1 for a visual representation of this process. From your end. Pic 2 is how it will look from my end.
     
 Branches are used to develop features isolated from each other.The main branch is the default branch when you create a repository. We'll use other branches for development and then merge those branches back to the main branch 
 
