@@ -1,8 +1,8 @@
-Here are the steps to set up a project on VS Community and set up PRs.
+Here are the steps to set up a project in the clean architecture pattern on VS Community, how to set up PRs, and a brief overview of branching and adding features.
+    
+* Step 1: Set up Repository 
 
-Step 1: Set up Repository 
-
-    First create the project 
+    //Create the project 
 
         -Go to VS Community, and create a new project 
 
@@ -10,21 +10,21 @@ Step 1: Set up Repository
 
         -Come up with a name for our project 
 
-    Set up the project files 
+    //Set up the project files 
 
-        -In clean architecture, each project file besides the Solution gets a name that designates what it is. So for the API project file we already have, rename it to “<nameyoupicked>.API”. We are going to add the name of each layer onto the end of the project file name. 
+        -In clean architecture, each project file besides the Solution gets a name that designates what it is to help with organization. So for the API project file we already have, rename it to “<nameyoupicked>.API”. We are going to add the name of each layer onto the end of each project file name. 
 
-        -Next, double click the solution file and scroll down to “add”, and click “new project” 
+        -Next, right click the solution file and scroll down to “add”, and click “new project” 
 
-        -We are going to need one console app template called <nameyoupicked>.Application 
+        -Select a console app template called <nameyoupicked>.Application 
 
-        -Another console app called <nameyoupicked>.Data 
+        -Another console app template called <nameyoupicked>.Data 
 
-        -Another console app called <nameyoupicked>.Domain 
+        -Another console app template called <nameyoupicked>.Domain 
 
         -And a final project in the Sql Server Database project template called <nameyoupicked>.SqlServerDatabase 
 
-    Set up the the repository 
+    //Set up the the repository 
 
         -go to git changes in the document and follow the steps to create a repo. It can be found at the very top under the git tab, or at the bottom left under the git changes tab 
 
@@ -34,20 +34,149 @@ Step 1: Set up Repository
 
         -Press create and push 
 
-Step 2: How to enable pull requests 
+* Step 2: How to enable pull requests 
      
-     Go to the repository on GitHub 
+     //Go to the repository on GitHub 
 
         -Click on the “settings” tab 
 
-        -Scroll down to the “branches” section 
+        -Press the collaborators button on the top left
 
-        -Click on “add rule” 
+        -press the “add people” button, and type in "brettmariani923". This will allow me to participate in the project and make PRs.
+
+     //Click on the “branches” section 
+
+        -Click on “add branch ruleset” 
     
-        -In the “branch name pattern” box, type in “main” 
+        -In the “Rulset Name” box, type in “Branch Protection Rule” 
+
+        -Click the "Enforcement status" dropdown and select "Active"
     
-        -Check the box that says “Require pull request reviews before merging” 
+     //Scroll down to the "Targets" section and click "Add target"
+
+        -Click "Include by pattern" and type in "main". Then click "add inclusion pattern". This will apply the rules to the main branch."
         
-        -Check the box that says “Require status checks to pass before merging” 
-        
-        -Click on “Create” at the bottom of the page
+    //Scroll down to the "Rules" section and enable the following:
+       
+        -Click the "Require pull request reviews before merging" checkbox
+
+        -Click the "Require approvals" checkbox and change it to 1
+
+        -Any others already checked are fine 
+
+        -Click the create button to save the branch protection rule.
+
+
+So far we've managed to set up a repository and enable pull requests. Now let's go through the steps to create a pull request in Visual Studio Community and GitHub.
+
+So the way pull requests work is that you create a new branch, make changes, and then submit those changes for review before merging them into the main branch. See pic 1 for a visual representation of this process.
+    
+Branches are used to develop features isolated from each other.The main branch is the default branch when you create a repository. We'll use other branches for development and then merge those branches back to the main branch 
+
+as we progress through the project. We will name our branches feature/<name of feature> to keep things organized and so we can easily identify what each branch is used for.
+
+So for example, when I am setting up the datalayer infrastructure, I will create a branch called feature/data-layer-infrastructure. I'll then push this branch and 
+
+and that will create a pull request to merge it into the main branch after you agree to it. If you are doing testing on your CRUD operations for example, you would create a branch called feature/CRUD_tests, or something similar. Sometimes you might need to break up a larger goal
+
+into smaller branches and that is totally fine, like if you are working on CRUD operations for multiple parts of the project, you might create branches like feature/CRUD_Favorites_Entry and feature/CRUD_Recipes_To_Try.
+
+
+
+
+* Step 3: Create a New Branch
+
+   //It is imporant not to work directly on the main branch. So we will make a new branch for each feature or bug fix. There a few ways we can do this, but its probably best just to do it through the IDE.
+   //I'll show you how to do it in Visual Studio Community, but you can also do it through the command line or terminal if you prefer.
+
+   //Through Visual Studio Community IDE (recommended):
+
+    -Save your work and ensure you are on the main branch before creating a new branch.
+
+    -go to the "view" menu at the top of Visual Studio Community and click "git changes", or just use the tab at the bottom left of the IDE.
+
+    -In the "Git Changes" window, click on the "Branches" dropdown at the top. It should say "main" at the moment. 
+
+    -In the window that appears, name your new branch depending on what you're doing, something like "feature/my-new-feature".
+
+    -Click on "New Branch" to create a new branch.
+
+   //Through the command line or terminal:
+
+    -Open your terminal or command prompt.
+
+    -Navigate to your project directory: cd path/to/your/project
+
+    -Make sure you are on the main branch, and then use --> git checkout main
+
+    -Pull the latest changes from the remote repository --> git pull origin main
+
+    -Create a new branch for your feature --> git checkout -b feature/my-new-feature
+
+    -This creates a new branch called `feature/my-new-feature` and switches to it.
+
+
+* Step 4: Make Changes and Create a Pull Request
+
+    //Now that you have a new branch, and you have been working on your feautre, you can create a pull request to merge your changes back into the main branch. 
+    //Again we can do this through Visual Studio Community or the command line, but it'll be easier to do it through Visual Studio Community.
+    //Stage and Commit Your Changes
+
+    //Through command line or terminal:
+
+        -git add . --> This stages all your changes for commit.
+
+        -git commit -m "Added new feature for X" --> This commits your changes with a message.
+
+        -git push origin feature/my-new-feature --> This pushes your branch to the remote repository on GitHub.
+
+    //Through Visual Studio Community IDE:
+
+        -In the "Git Changes" window, you should see your changes listed.
+
+        -Stage your changes by clicking the "+" icon next to each file or "Stage All".
+
+        -Enter a commit message in the "Message" box, like "Added new feature for X".
+
+        -Click "Commit All" to commit your changes.
+
+        -Click "Push" to push your branch to GitHub.
+    
+    
+    //Open a Pull Request on GitHub
+
+        -Go to your repository on GitHub.com.
+
+        -GitHub will usually show a prompt:   "Compare & pull request" – click it.
+    
+        -If you dont see it, go to the “Pull Requests” tab and click “New pull request”.
+  
+        -Select the base branch --> main
+
+        -Compare branch: feature/my-new-feature
+
+        -Add a descriptive title and description explaining the changes.
+
+        -Click “Create pull request”.
+
+6. Review and Merge
+
+    You (or a reviewer) can review the code, leave comments, or request changes.
+
+    Once approved:
+
+        Click “Merge pull request”
+
+        Confirm the merge.
+
+        (Optional) Delete the feature branch after merging.
+
+    how to enable pull requests in Visual Studio Community
+    -Open your project in Visual Studio Community
+    -Make sure you have the Git extension installed
+    -Go to the “Team Explorer” tab
+    -Click on “Branches”
+    -Right-click on the branch you want to create a pull request for
+    -Select “Create Pull Request”
+    -Fill out the form with a title and description of your changes
+    -Click “Create”
