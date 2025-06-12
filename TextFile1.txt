@@ -176,6 +176,7 @@ into smaller branches and that is totally fine, like if you are working on CRUD 
    
 
 And that should be enough for getting the project set up. We have a repository, enabled pull requests, showed you how to create a new branch, make changes, and a pull request. After this, we can start working on the actual features of the project.
-I'll probably make the first pull request to set up the abstraction in the data layer infrastructure and some other thing, and then we can go from there. After that, we will start you off by having you write sql statements for the tables we are going to use,
-and then you'll do CRUD operations and run tests to see how we need to update our SQL statements to make sure everything works how we want it to.
+I'll probably make the first PR to set up the abstraction in the data layer infrastructure and a few other things, but then we can go from there. After that, we will start you off by having you write sql statements for the tables we are going to use,
+and then you'll do CRUD operations and run tests to see how we need to update our SQL statements to make sure everything works how we want it to. Let me know if you have any questions about anything, its okay if you mess it up your first doing it. I messed it up my first time too,
+so just let me know if you have any issues and I can help you out.
 
