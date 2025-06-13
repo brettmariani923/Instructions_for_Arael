@@ -8,11 +8,11 @@ Here are the steps to set up a project in the clean architecture pattern on VS C
 
         -Select the the API template. 
 
-        -Come up with a name for our project 
+        -Come up with a name for our project for the solution file. For the API project, we will use the name you picked for the solution file, but with API on the end --> <nameyoupicked>.API
 
     //Set up the project files 
 
-        -In clean architecture, each project file besides the Solution gets a name that designates what it is to help with organization. So for the API project file we already have, rename it to “<nameyoupicked>.API”. We are going to add the name of each layer onto the end of each project file name. 
+        -In clean architecture, each project file besides the Solution gets a name that designates what it is to help with organization. Like for the API project file we already have --> “<nameyoupicked>.API”. We are going to add the name of each layer onto the end of each project file name. 
 
         -Right click the solution file in the Solution Explorer and click “add solution folder” and call it "Solution Items"
 
@@ -22,11 +22,11 @@ Here are the steps to set up a project in the clean architecture pattern on VS C
 
         -Select the XUnit Test Project template and name it "<nameyoupicked>.Tests"
 
-        -Then right click the solution file again and select a console app template called <nameyoupicked>.Application 
+        -Then right click the solution file again and select a class library template, call it <nameyoupicked>.Application 
 
-        -Right click the solution file again and then add another console app template called <nameyoupicked>.Data 
+        -Right click the solution file again and then add another class library template called <nameyoupicked>.Data 
 
-        -Right click solution file and then add another console app template called <nameyoupicked>.Domain 
+        -Right click solution file and then add another class library template called <nameyoupicked>.Domain 
 
         -Right click solution file and a final project in the Sql Server Database project template called <nameyoupicked>.SqlServerDatabase 
 
@@ -39,6 +39,8 @@ Here are the steps to set up a project in the clean architecture pattern on VS C
         -Change visibility from private to public 
 
         -Press create and push 
+
+        -We also need to make sure VS default git ignore is the first thing we push right after. Always do this in the clean architecture patter, it will save you a massive headache later.
 
 * Step 2: How to enable pull requests 
      
@@ -68,6 +70,8 @@ Here are the steps to set up a project in the clean architecture pattern on VS C
 
         -Click the "Require approvals" checkbox and change it to 1
 
+        -Click the "Require approval of the most recent reviewable push" checkbox"
+
         -Any others already checked are fine 
 
         -Click the create button to save the branch protection rule.
@@ -94,6 +98,8 @@ into smaller branches and that is totally fine, like if you are working on CRUD 
    //I'll show you how to do it in Visual Studio Community, but you can also do it through the command line or terminal if you prefer.
 
    //Through Visual Studio Community IDE (recommended):
+
+   * Before creating a new branch (and before merging a PR) you should always do a fetch and pull from main into your branch *
 
     -Save your work and ensure you are on the main branch before creating a new branch.
 
